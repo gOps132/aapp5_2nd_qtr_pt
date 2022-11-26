@@ -4,18 +4,6 @@
 	background-color: var(--bg-primary);
 	transition: width 600ms ease;
 	overflow: hidden;
-
-	bottom: 1;
-	width: 100%;
-	height: 5rem;
-
-	filter: opacity(0.7);
-	transition: var(--transition-speed);
-}
-
-.navbar:hover {
-    transition: all var(--transition-speed) ease;
-	filter: opacity(0.9);
 }
 
 .navbar_nav {
@@ -23,30 +11,33 @@
 	padding: 0;
 	margin: 0;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 	height: 100%;
+}
 
-	justify-content: flex-end;
+.nav_item {
+	width: 100%;
 }
 
 .nav_item:last-child {
-	margin-left: auto;
+	margin-top: auto;
 }
 
 .nav_link {
 	display: flex;
 	align-items: center;
 	height: 5rem;
-	color: var(--text-secondary);
+	color: var(--text-primary);
 	text-decoration: none;
-	filter: opacity(0.7);
+	filter: grayscale(100%) opacity(0.7);
 	transition: var(--transition-speed);
 }
 
 .nav_link:hover {
-	filter: opacity(1);
+	filter: grayscale(0%) opacity(1);
 	background: var(--bg-secondary);
+	color: var(--text-secondary);
 }
 
 .nav_link svg {
@@ -76,10 +67,13 @@
 .logo {
 	font-weight: bold;
 	text-transform: uppercase;
+	margin-bottom: 1rem;
 	text-align: center;
 	color: var(--text-secondary);
+	background: var(--bg-secondary);
 	font-size: 1.5rem;
 	letter-spacing: 0.3ch;
+	width: 100%;
 }
 
 .logo svg {
@@ -89,6 +83,8 @@
 
 .logo_text {
 	display: inline;
+	position: absolute;
+	left: -999px;
 	transition: var(--transition-speed);
 }
 
@@ -102,15 +98,46 @@
 
 /* Small screens */
 @media only screen and (max-width: 600px) {
-	.navbar_item {
+	.navbar {
+		bottom: 0;
 		width: 100%;
+		height: 5rem;
 	}
 
 	.logo {
 		display: none;
 	}
 
+	.navbar_nav {
+		flex-direction: row;
+	}
+
 	.nav_link {
 		justify-content: center;
+	}
+}
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+	.navbar {
+		top: 0;
+		width: 5rem;
+		height: 100vh;
+	}
+
+	.navbar:hover {
+		width: 16rem;
+	}
+
+	.navbar:hover .link_text {
+		display: inline;
+	}
+
+	.navbar:hover .logo svg {
+		margin-left: 11rem;
+	}
+
+	.navbar:hover .logo_text {
+		left: 0px;
 	}
 }
