@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "engines": {
-        "node": "<=12.16.1"
+        "node": ">=18.x"
     },
     "scripts": {
         "dev": "next dev",
@@ -13,10 +13,6 @@
     "dependencies": {
         "@svgr/webpack": "^5.5.0",
         "fs": "0.0.1-security",
-        "gray-matter": "^4.0.3",
-        "image-size": "^1.0.0",
-        "katex": "^0.16.2",
-        "marked-katex": "^0.3.8",
         "next": "^10.2.3",
         "react": "^17.0.2",
         "react-dom": "17.0.2"
